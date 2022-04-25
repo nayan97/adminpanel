@@ -1,3 +1,4 @@
+
 @extends('admin.layouts.app')
 
 
@@ -35,37 +36,51 @@
 
 
 					<div class="col">
-						<h6 class="mb-0 text-uppercase">Basic Form</h6>
+						<h6 class="mb-0 text-uppercase">Create Staff data </h6>
 						<hr>
+							@if( $errors -> any())
+							<p class="alert alert-danger d-flex justify-content-between">{{ $errors -> first()}} <button class="btn-close" data-bs-dismiss ="alert"></button> </p>
+
+							@endif
+							@if( Session::has('success'))
+							<p class="alert alert-success d-flex justify-content-between">{{ Session::get('success')}} <button class="btn-close" data-bs-dismiss ="alert"></button> </p>
+
+							@endif
+
 						<div class="card border-top border-0 border-4 border-primary">
 							<div class="card-body p-5">
 								<div class="card-title d-flex align-items-center">
 									<div><i class="bx bxs-user me-1 font-22 text-primary"></i>
 									</div>
-									<h5 class="mb-0 text-primary">User Registration</h5>
+									<h5 class="mb-0 text-primary">Staff Registration</h5>
 								</div>
 								<hr>
-								<form class="row g-3">
+								<form class="row g-3" action={{ route('staff.store') }} method="POST" enctype="multipart/form-data">
+									@csrf
 									<div class="col-md-12">
 										<label for="inputFirstName" class="form-label">Staff Name</label>
-										<input type="text" class="form-control" id="inputFirstName">
+										<input name="name" type="text" class="form-control" id="inputFirstName">
 									</div>
 							
 									<div class="col-md-12">
-										<label for="inputFirstName" class="form-label">FB</label>
-										<input type="text" class="form-control" id="inputFirstName">
+										<label for="inputFirstName" class="form-label">Facebook</label>
+										<input name="fb" type="text" class="form-control" id="inputFirstName">
+									</div>
+									<div class="col-md-12">
+										<label for="inputFirstName" class="form-label">Twitter</label>
+										<input name="tw" type="text" class="form-control" id="inputFirstName">
 									</div>
 									<div class="col-md-12">
 										<label for="inputFirstName" class="form-label">INSTAGRAM</label>
-										<input type="text" class="form-control" id="inputFirstName">
+										<input name="in" type="text" class="form-control" id="inputFirstName">
 									</div>
 									<div class="col-md-12">
 										<label for="inputFirstName" class="form-label">LINKEDIN</label>
-										<input type="text" class="form-control" id="inputFirstName">
+										<input name="ln" type="text" class="form-control" id="inputFirstName">
 									</div>
 									<div class="mb-3">
 									<label for="formFile" class="form-label">Photo</label>
-									<input class="form-control" type="file" id="formFile">
+									<input name="photo" class="form-control" type="file" id="formFile">
 									</div>
 							
 									</div>

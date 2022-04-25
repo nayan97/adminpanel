@@ -35,7 +35,30 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
-        //
+                $this -> validate($request, [
+                    'name' => 'required',
+                    'photo'=> 'required'
+                ]);
+                
+
+                Staff::create([
+                    'name'                  =>$request -> name,
+                    'facebook'              =>$request -> fb,
+                    'twitter'               =>$request -> tw,
+                    'instagram'             =>$request -> in,
+                    'linkedin'              =>$request -> ln,
+                    'photo'                 => ''
+
+                ]);
+
+                return redirect() -> route ('staff.create') -> with('success', 'Data submitted Successfuly');
+
+
+
+
+
+
+
     }
 
     /**
