@@ -22,8 +22,7 @@ Route::get('/staff',[FrontendController::class, 'ShowStaffPage']) ->name('staff.
  */
 Route::get('dashborad', [DashboradController::class,'ShowDashborad']) ->name('dashborad.index');
 
-Route::resource('staff', StaffController::class);
-Route::resource('/student', StudentController::class);
+Route::resource('/staff', StaffController::class);
 
 
 

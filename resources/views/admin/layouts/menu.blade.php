@@ -44,9 +44,9 @@
 						<div class="menu-title">Staff</div>
 					</a>
 					<ul>
-						<li> <a href="app-emailbox.html"><i class="bx bx-right-arrow-alt"></i>All Staff</a>
+						<li> <a href="{{ route('staff.index')}}"><i class="bx bx-right-arrow-alt"></i>All Staff</a>
 						</li>
-						<li> <a href="app-chat-box.html"><i class="bx bx-right-arrow-alt"></i>Add New Staff</a>
+						<li> <a href="{{ route('staff.create')}}"><i class="bx bx-right-arrow-alt"></i>Add New Staff</a>
 						</li>
 					
 					</ul>

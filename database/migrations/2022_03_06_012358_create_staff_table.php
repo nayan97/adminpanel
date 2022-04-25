@@ -15,6 +15,14 @@ return new class extends Migration
     {
         Schema::create('staff', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('facebook') ->nullable();
+            $table->string('instagram') ->nullable();
+            $table->string('twitter') ->nullable();
+            $table->string('linkedin') ->nullable();
+            $table->string('photo');
+            $table->boolean('status') ->default(true);
+            $table->boolean('trash') ->default(false);
             $table->timestamps();
         });
     }
